@@ -1,0 +1,328 @@
+\section{Filtros}
+
+Los filtros, como se mencionó, son objetos de la teoría de conjuntos,
+que, como su nombre indica, filtran de forma análoga a lo que
+puede hacer un colador. Para esta sección, se considerará $I$ como un
+conjunto no vacío, esto último es necesario para la definición de filtro.
+
+\begin{definition}\label{def:filtro}
+  Un filtro $\F$ sobre $I$ es un conjunto no vacío de subconjuntos de $I$
+  el cual cumple las siguientes características:
+  \begin{enumerate}
+    \item $\varnothing \not\in \F$
+    \item $\Forall{A,B}[A,B \in \F]{A\cap B \in \F}$
+    \item $\Forall{A,B}[A\in \F \land A \subseteq B]{B \in \F}$
+  \end{enumerate}
+
+  Para esta sección, la letra $\F$ denotará un filtro sobre $I$.
+\end{definition}
+
+Por ejemplo, considere el conjunto $X=\{a,b,c\}$. Un filtro $G$ sobre $X$
+puede ser 
+\[G = \{\{a\}, \{a,b\}, \{a,c\}, \{a,b,c\}\}\]
+Nótese que por la definición de filtro, el conjunto sobre el que este se
+define, siempre debe ser un elemento del filtro.
+
+\begin{definition}
+  Sea $\mathcal{B}$ una colección no vacía de subconjuntos de $I$ tal
+  que
+  \[
+    \Forall{A,B}[A,B \in \mathcal{B}]{
+      \Exists{C}[C\in\mathcal{B}]{C \subseteq A \cap B}
+      }
+  \]
+  Se dice entonces, que $\mathcal{B}$ es una base para algún filtro sobre $I$.
+  Nótese que toda base genera un filtro, como puede ser
+  \[\F = \{A \subseteq I \,|\, \Exists{B}[B\in\mathcal{B}]{B\subseteq A}\}\]
+\end{definition}
+
+\begin{definition}
+  Sea $\mathcal{S}$ una colección de subconjuntos de $I$ tal que
+  $\mathcal{S}$ cumpla la propiedad de las intersecciones finitas. Esto es,
+  para toda colección finita de elementos de $S$, su intersección es
+  distinta de $\varnothing$. Se dice entonces que $\mathcal{S}$ es una
+  sub-base para algun filtro sobre $I$.
+\end{definition}
+
+Así como un colador puede ser más fino que otro, en el sentido que
+deja pasar menos cosas, también se pueden comparar a los filtros definidos
+sobre un conjunto.
+
+\begin{definition}[Relación de orden]
+  Sea $\mathscr{F}$ el conjunto de filtros sobre $I$, la relación de contenencia
+  ordena parcialmente a $\mathscr{F}$, y entre dos elementos se define de la siguiente
+  manera:
+
+  Un filtro $\F_1$ es \emph{más fino} que un filtro $\F_2$ cuando $\F_2 \subseteq \F_1$.
+\end{definition}
+
+Como ejemplo, volvamos al conjunto $X$ definido para el ejemplo anterior. Sean $G_1$, $G_2$
+filtros sobre $X$, donde
+\[G_1 = \{\{a\}, \{a,b\},\{a,c\},\{a,b,c\}\}\text{ , } G_2 = \{\{a,b,c\}\}\]
+Se puede ver que $G_2 \subseteq G_1$. Sin embargo, hay filtros que no
+se pueden comparar, incluso en conjuntos tan simples como podría ser
+$X$. Si consideramos ahora un nuevo filtro\\
+$G_3 = \{\{b\}, \{b,a\},\{b,c\},\{a,b,c\}\}$, está claro que no se pueden comparar
+$G_3$ y $G_1$.
+
+\begin{definition}
+  Sea $\mathscr{F}$ el conjunto de filtros definidos sobre $I$. Se define
+  el concepto de ultrafiltro como un elemento maximal de $\mathscr{F}$ con
+  la relación de orden definida anteriormente. Simbólicamente,
+  un filtro $\U$ sobre $I$, es un ultrafiltro cuando
+  \[\Forall{\F}[\F\in\mathscr{F}\land\F \not=\U]{\U\not\subset\F}\]
+
+  Para esta sección, la letra $\U$ denotará un ultrafiltro sobre $I$.\\
+  Como ejemplo, se pueden tomar los filtros $G_1$ y $G_3$ de antes.
+\end{definition}
+\pagebreak
+\begin{theorem}[Caracterizaciones]
+  Sea $\U$ un ultrafiltro sobre $I$. $\U$ es un ultrafiltro si y solo si:
+  \begin{enumerate}
+    \item $\Forall{A}[A\subseteq I]{A\in\U \not\equiv I-A \in \U}$
+    \item Sean $n\in\J$, $\{A_k\}$ una colección de $n$ subconjuntos de $I$ tal que
+          \[\bigcup_{k=1}^n A_k \in \U\]
+          entonces
+          \[\Exists{k}[k\leq n]{A_k\in\U}\]
+  \end{enumerate}
+\end{theorem}
+
+\begin{demo}[i] Por un lado, se va a mostrar que si $\U$ es un ultrafiltro,
+  entonces se tiene la propiedad. Por contradicción, se va a suponer
+  que $\U$ es un ultrafiltro, y se tiene un subconjunto $A$ de $I$, tal
+  que $A \not\in \U \,\land\, I-A\not\in\U$. Una forma equivalente de escribir
+  el punto (iii) de la \hyperref[def:filtro]{definición de filtro} es
+  \[\Forall{A,B}[A\subseteq B]{B\not\in\F \To A\not\in\F}\]
+  Con esto se puede ver que ningún subconjunto, tanto de $A$ como de $I-A$
+  es elemento de $\U$.
+
+  Sea $\U_2 = \{B \subseteq I \,|\, B \cup A \in \U\}$, se puede ver que
+  $\U \subset \U_2$, en efecto
+  \begin{longderivation}<1>
+      \wff{ B \in \U }\\
+    \To\\
+      \wff{ B \cup A \in \U }\\
+    \equiv\\
+      \wff{ B \in \U_2 }
+  \end{longderivation}
+
+  No son iguales, pues, por ejemplo, $I-A \cup A = I$, $I-A \in \U_2$.\\
+  Hace falta ver que $\U_2$ es un filtro.
+  \begin{enumerate}
+    \item Por contradicción, es inmediato:
+          \begin{longderivation}<0.7>
+              \wff{ \varnothing \in \U_2 }\\
+            \equiv\\
+              \wff{ A \in \U }
+          \end{longderivation}
+    \item Sean $X, Y \in \U_2$
+          \begin{longderivation}<0.7>
+              \wff{ X \cap Y \in \U_2 }\\
+            \equiv\\
+              \wff{ (X \cap Y) \cup A \in \U }\\
+            \equiv\\
+              \wff{ (X \cup A) \cap (Y \cup A) \in \U }\\
+          \end{longderivation}
+          Como $X,Y\in\U_2$, se tiene que ambos términos de la intersección
+          son elementos de $\U$. Como $\U$ es un filtro, por definición, esta
+          intersección también es elemento de $\U$.
+    \item Sean $X\in\U_2$ y $Y\supseteq X$
+          \begin{longderivation}
+              \wff{ X \subseteq  Y }\\
+            \To\\
+              \wff{ X \cup A \subseteq Y \cup A }\\
+            \why[\To]{$X\in\U_2$ y $\U$ es un filtro}\\
+              \wff{ Y \cup A \in \U }\\
+            \equiv\\
+              \wff{ Y \in \U_2 }
+          \end{longderivation}
+  \end{enumerate}
+
+  Entonces, se tiene que $\U \subset \U_2$ y $\U_2$ es un filtro sobre
+  $I$. Lo cual contradice la hipótesis de que $\U$ es un ultrafiltro.
+
+  Por el otro lado, de igual forma por contradicción, se va a suponer que
+  $\U$ es un filtro con la propiedad (i) y que $\U$ no es un ultrafiltro.
+
+  Como $\U$ no es un ultrafiltro, por el lema del ultrafiltro, existe
+  un filtro $\U_2$ tal que $\U \subset \U_2$.
+  \begin{longderivation}
+      \wff{ \U_2 - \U \not= \varnothing }\\
+    \equiv\\
+      \wff{ \Exists{A}{A \in \U_2 - \U} }\\
+    \why{ $\U$ cumple (i) y $A \not\in \U$ }\\
+      \wff{ \Exists{A}[A\in\U_2-\U]{I-A\in\U} }\\
+    \why[\To]{$\U\subset\U_2$}\\
+      \wff{ \Exists{A}[A\in\U_2-\U]{I-A\in \U_2} }\\
+    \equiv\\
+      \wff{ \Exists{A}[A\not\in\U]{A\in\U_2 \land I-A\in\U_2} }\\
+    \why[\To]{Definición de filtro}\\
+      \wff{ \Exists{A}[A\not\in\U]{\varnothing\in\U_2} }
+  \end{longderivation}
+  Esto último contradice la definición de filtro, mostrando así que la
+  suposición de que $\U$ no es un ultrafiltro, es incorrecta.
+\end{demo}
+\begin{demo}[ii]
+  Como ya se demostró la equivalencia entre la definición de
+  ultrafiltro y (i), se va a usar esta última.
+
+  Por un lado, se va a mostrar que (i) $\To$ (ii).
+  Sean $\U$ un ultrafiltro sobre $I$, $n\in\N$ y $\{A_k\}$ una colección
+  de conjuntos de $I$ tal que su unión esté en $\U$. Se va a mostrar
+  que existe un elemento de esta colección que está en $\U$. Para
+  esto, se va a suponer que no existe dicho elemento, es decir:
+  \begin{longderivation}
+      \wff{ \bigcup_{k=1}^{n} A_k \in \U \land
+            \Forall{k}[1\leq k\leq n]{A_k \not\in \U} }\\
+    \why{(i)}\\
+      \wff{ \bigcap_{k=0}^{n} (I - A_k) \not\in\U \land
+            \Forall{k}[1\leq k\leq n]{I - A_k \in \U} }
+  \end{longderivation}
+  Esta última expresión es contradictoria, pues por definición, las
+  intersecciones finitas de elementos de filtros son elementos de los
+  filtros (\hyperref[def:filtro]{propiedad (ii) de la definición}).
+  Justamente se tiene que todos los elementos de una intersección finita
+  son elementos de $\U$, y su intersección no es elemento del filtro, Así
+  (i) $\To$ (ii).
+
+  Por otro lado, se va a mostrar que (ii) $\To$ (i). Sea $\U$ un
+  ultrafiltro sobre $I$. Suponiendo que se cuenta con (ii). Sean
+  $F \in \U$, $A_1 = F$ y $A_2 = I-F$. Como $\bigcup_{k=1}^2 A_k = I$
+  y $I\in\U$, por (ii), al menos uno de los $A_k$ debe pertenecer a $\U$.
+  Por definición de filtro, no puede ser que ambos sean elementos de $\U$
+  y (ii) garantiza que no puede ser que ninguno sea elemento de $\U$. Es decir,
+  $A_1\in\U \not\equiv A_2\in\U$, que reemplazando, es (i). Así
+  (ii) $\To$ (i).
+\end{demo}
+
+\begin{definition}
+  Un filtro $\F$ es llamado $\delta$-incompleto cuando existe una colección
+  contable de subconjuntos de $I$, tal que todos sus elementos estén en $\U$ y
+  su intersección no. Es decir, si existe $\{F_n\}_{n\in\N}$ tal que,
+  para todo $n\in\N$, $F_n\in\U$ y $\bigcap_{n\in\N}F_n \not\in \U$. Un filtro
+  es llamado $\delta$-completo cuando no es $\delta$-incompleto.
+\end{definition}
+
+\begin{theorem}[Caracterización]
+  Un ultrafiltro $\U$ es $\delta$-incompleto si y solo si, existe
+  $\{I_n\}$, una partición contable de $I$, tal que, para todo $n$,
+  $I_n\not\in\U$.
+\end{theorem}
+
+\begin{demo}
+  Sean $\U$ un ultrafiltro $\delta$-incompleto sobre $I$ y
+  $\{F_n\}_{n\in\J}$ una colección de subconjuntos de $I$, la cual
+  cumple la definición de $\delta$-incompleto en $\U$. Se tiene
+  entonces que
+  \begin{longderivation}
+      \wff{ \Forall{n}[n\in\J]{F_n\in\U} \land \bigcap_{n\in\J} F_n \not\in \U}\\
+    \why{ $\U$ es un ultrafiltro }\\
+      \wff{ \Forall{n}[n\in\J]{I - F_n \not\in \U} \land
+            \bigcup_{n\in\J} (I - F_n) \in \U }
+  \end{longderivation}
+
+  Sea $\{B_n\}_{n\in\J}$ una colección de subconjuntos de $I$, definida por
+  $ B_n = \bigcup_{k=1}^n (I - F_k)$. Nótese que, los elementos de
+  $B_n$ están contenidos consecutivamente, esto es
+  \[\Forall{n,m}[n,m\in\J \land n \leq m]{B_n \subseteq B_m}\]
+
+  Sea $\{I_n\}_{n\in\N}$ una colección de subconjuntos de $I$ definida por
+  \[
+    \begin{syseq}(\{,\})
+      I_0     &= \bigcap_{k\in\J} F_k\\
+      I_{n+1} &= B_{n+1} - B_n
+    \end{syseq}
+  \]
+
+  Se va a mostrar que $\{I_n\}_{n\in\N}$ es una partición de $I$ tal que,
+  para todo $n$, $I_n\not\in\U$. Es evidente que $I_0\not\in\U$, pues se
+  tiene en la definición de $\{F_n\}$.
+  \begin{longderivation}
+      \wff{ I_{n+1} }\\
+    =\\
+      \wff{ B_{n+1} - B_{n} }\\
+    =\\
+      \wff{ \bigcup_{k=1}^{n+1}(I-F_k) - \bigcup_{k=1}^{n}(I-F_k)}\\
+    =\\
+      \wff{ \left((I-F_{n+1}) \cup \bigcup_{k=1}^{n}(I-F_k)\right)
+            \cap \left(I-\bigcup_{k=1}^{n}(I-F_k)\right) }\\
+    =\\
+      \wff{ \left((I-F_{n+1}) \cap
+              \left(I-\bigcup_{k=1}^{n}(I-F_k)\right)
+            \right)
+              \cup
+            \left(
+              \bigcup_{k=1}^{n}(I-F_k) \cap
+              \left(I-\bigcup_{k=1}^{n}(I-F_k)\right)
+            \right) }\\
+    =\\
+      \wff{ (I-F_{n+1}) \cap \bigcap_{k=1}^{n}F_k }
+  \end{longderivation}
+
+  Se puede ver que, para todo $n\in\J$, $I_n \subseteq I - F_n$. Por la
+  \hyperref[def:filtro]{definición de filtro}, nuevamente el punto (iii),
+  para todo $k\in\J$, nunguno de los subconjuntos de $I_k$ es elemento de $\U$,
+  así, para todo $n\in\N$, $I_n\not\in\U$.
+  
+  Por como se definió $I_n$ para $n\in\J$, se puede ver que sus
+  elementos son disjuntos. Asimismo, al ser estos subconjuntos de
+  $I - F_n$ respectivamente, son disjuntos con $I_0$. Esto
+  último se verá de forma más clara al corroborar que la unión de la
+  colección sea efectivamente $I$.
+  \begin{longderivation}
+      \wff{ \bigcup_{n\in\J}I_n }\\
+    =\\
+      \wff{ \bigcup_{n\in\J}B_n }\\
+    =\\
+      \wff{ \bigcup_{n\in\J}(I - F_n) }
+  \end{longderivation}
+
+  Para finalizar la demostración, se tomará el complemento de esta unión,
+  la cual es disjunta con dicha unión y además, su unión es $I$.
+  \begin{longderivation}
+      \wff{ I - \bigcup_{n\in\J}(I - F_n) }\\
+    =\\
+      \wff{ \bigcap_{n\in\J}F_n }\\
+    =\\
+      \wff{ I_0 }
+  \end{longderivation}
+\end{demo}
+
+Nótese que la existencia de un ultrafiltro $\delta$-incompleto sobre
+un conjunto, requiere que dicho conjunto sea infinito.
+
+\begin{theorem}
+  Sea $I$ un conjunto infinito, entonces, existe un ultrafiltro
+  $\delta$-incompleto sobre $I$.
+\end{theorem}
+
+\begin{demo}
+  Sea $\{I_n\}_{n\in\N}$ una partición contable de $I$. Defínanse $A$ y $\B$
+  como:
+  \begin{align*}
+    A &= \{I_n \,|\, n\in\N\} \cup \{S \subseteq I \,|\, S \text{ es finito}\}\\
+    \B &= \{I - S \,|\, S \in A\}
+  \end{align*}
+
+  Si $\B$ es una sub-base, entonces existe un filtro asociado $\F$, el cual
+  debe estar contenido en un ultrafiltro $\U$ por el lema del ultrafiltro. por
+  como se definió $\B$, se tendría que, para todo $n$, $I-I_n\in\U$.
+
+  La condición necesaria para que $\B$ sea una sub-base, es que cumpla la
+  propiedad de las intersecciones finitas.
+  Sean $P_1$, $P_2$ subconjuntos finitos de $\N$, y $\{H_n\}_{n\in P_2}$ una
+  colección de subconjuntos finitos de $I$.
+
+  \begin{longderivation}
+      \wff{ \bigcap_{n\in P}(I - I_n) \cap \bigcap_{n\in P_2} (I - H_n) }\\
+    =\\
+      \wff{ I - \left(\bigcup_{n\in P_1} I_n \cup \bigcup_{n\in P_2} H_n\right) }
+  \end{longderivation}
+
+  Nótese que, $\bigcup_{n\in I - P_1} I_n$ es un subconjunto infinito de $I$.
+  También, se tiene que $\bigcup_{n\in P_2}H_n$ es un subconjunto finito de $I$.
+  Con esto se demuestra que la intersección presentada es distinta de $\varnothing$.
+  Con lo cual, $\B$ es una sub-base.
+\end{demo}
+
+\input{EjerFiltros}

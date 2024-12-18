@@ -1,0 +1,179 @@
+\documentclass[leqno, 12pt]{article}
+
+\usepackage{logicDG, calcDG}
+\usepackage{amsfonts}
+\usepackage[hidelinks]{hyperref}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+\usepackage[spanish, es-noquoting, es-lcroman, es-noshorthands]{babel}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{upgreek}
+\usepackage{amsthm}
+\usepackage{csquotes}
+\usepackage[a]{esvect}
+\usepackage{enumerate}
+\usepackage[sorting=none]{biblatex}
+\addbibresource{Referencias.bib}
+\usepackage{geometry}
+\geometry{
+  left=2cm,
+  right=2cm,
+  bottom=4cm,
+  a4paper
+}
+\usepackage{pdfrender}
+\pdfrender{TextRenderingMode=2,LineWidth=.5pt}
+
+\hypersetup{
+  pdftitle={Análisis no estándar},
+  pdfauthor={David Gómez}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{70.38103pt}
+
+% ~~~~~~ Autor/es ~~~~~~ %
+\rhead{\textit{David G.}}
+% ~~~~~~ Esquina ~~~~~~ %
+
+\lhead{\includegraphics[width = 4cm]{\logo}}
+\lfoot{Página \thepage}
+
+% ~~~~~~ Título ~~~~~~ %
+\rfoot{Análisis N.E.}
+% ~~~~~~ Esquina ~~~~~~ %
+\renewcommand{\headrule}{\hbox to \headwidth{\color{rojoEci}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\hyphenpenalty=10000
+
+% ~~~~ Ruta a Imágenes ~~~~ %
+\graphicspath{{./AnalisisNE/}}
+\newcommand{\logo}{"logo-eci-normal.png"}
+% ~~~~ Ruta a Imágenes ~~~~ %
+
+
+% ~~~~~~ Autor/es y Titulo ~~~~~~ %
+\newcommand{\titlename}{Análisis No Estandar}
+\renewcommand{\author}{{David Gómez}}
+% ~~~~~~ Autor/es y Titulo ~~~~~~ %
+
+\definecolor{rojoEci}{RGB}{225, 70, 49}
+
+% Enumi func
+
+\renewcommand{\labelenumi}{(\roman{enumi})}
+
+% ~~~~ Nombres de conjuntos y demás ~~~~~ %
+\newtheoremstyle{definition}%
+{10pt} % espaciado arriba
+{20pt} % espaciado abajo
+{\normalfont} % fuente del cuerpo
+{} % indentación
+{\bfseries} % fuente del título
+{:} % puntuación después del título
+{5pt} % espacio después del título
+{}
+
+\newtheoremstyle{proof}%
+{5pt}
+{10pt}
+{\normalfont}
+{\parindent}
+{\itshape\bfseries}
+{:}
+{5pt}
+{}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}[section]
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{lemma}{Lema}[section]
+\newtheorem*{note}{Nota}
+
+\theoremstyle{proof}
+\newtheorem*{demo}{Demostración}
+
+
+% ~~~~ Nombres de conjuntos, funciones y demás ~~~~~ %
+\NewDocumentCommand{\F}{}{\mathcal{F}}
+\NewDocumentCommand{\U}{}{\mathscr{U}}
+\NewDocumentCommand{\N}{}{\mathbb{N}}
+\NewDocumentCommand{\J}{}{\mathds{J}}
+\NewDocumentCommand{\R}{}{\mathds{R}}
+\NewDocumentCommand{\C}{}{\mathds{C}}
+\NewDocumentCommand{\Rh}{}{\widehat{\R}}
+\NewDocumentCommand{\e}{}{\upvarepsilon}
+\NewDocumentCommand{\B}{}{\mathcal{B}}
+\NewDocumentCommand{\equ}{}{=_\U}
+\NewDocumentCommand{\inu}{}{\in_\U}
+\NewDocumentCommand{\st}{m}{\prescript{*}{}{#1}}
+\NewDocumentCommand{\IRh}{}{\prescript{I}{}{\Rh}}
+\NewDocumentCommand{\sd}{m}{\mathrm{s\hspace{-0.25pt}t}\!\left(#1\right)}
+
+\NewDocumentCommand{\Pts}{m}{\mathscr{P}\left(#1\right)}
+\NewDocumentCommand{\dom}{}{\text{dom}\;}
+\NewDocumentCommand{\ran}{}{\text{ran}\;}
+\NewDocumentCommand{\set}{m m}{\left\{#1\,\middle|\,#2\right\}}
+
+\RenewDocumentCommand{\frac}{m m}{\genfrac{}{}{.865pt}{0}{#1}{#2}}
+
+\renewcommand{\labelitemi}{$\bullet$}
+
+\everymath{\displaystyle}
+
+\doublespacing
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+        \vspace{1cm}
+
+        \textbf{\Huge{\titlename}}
+
+        \vspace{1.5cm}
+
+        \textbf{\large{\author}}
+
+        \vspace{3cm}
+
+        \includegraphics[width=0.8\textwidth]{\logo}
+        
+        \vfill
+
+        Matemáticas
+
+        Escuela Colombiana de Ingeniería Julio Garavito
+
+        \today
+    \end{center}
+\end{titlepage}
+
+\clearpage
+\tableofcontents
+
+\include{Intro}
+
+\include{Filtros}
+
+\include{SupEstructura}
+
+\include{UltraPot}
+
+\include{NoEstReal}
+
+\include{Sucesiones}
+
+\include{ContDif}
+
+\nocite{Ultrafilters}
+\nocite{Robinson}
+\printbibliography[heading=bibintoc]
+
+\end{document}
