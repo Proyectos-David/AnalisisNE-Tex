@@ -26,8 +26,6 @@
   bottom=4cm,
   a4paper
 }
-\usepackage{pdfrender}
-\pdfrender{TextRenderingMode=2,LineWidth=.5pt}
 
 \hypersetup{
   pdftitle={Análisis no estándar},
@@ -123,7 +121,6 @@
 \NewDocumentCommand{\ran}{}{\text{ran}\;}
 \NewDocumentCommand{\set}{m m}{\left\{#1\,\middle|\,#2\right\}}
 
-\RenewDocumentCommand{\frac}{m m}{\genfrac{}{}{.865pt}{0}{#1}{#2}}
 
 \renewcommand{\labelitemi}{$\bullet$}
 
