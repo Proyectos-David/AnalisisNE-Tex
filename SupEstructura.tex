@@ -36,39 +36,39 @@ de $\R$ serán llamados \emph{individuos}.
   \begin{enumerate}
     \item Sean $n,m\in\N$ tales que $n\leq m$.
           \begin{longderivation}<.9>
-              {x\in\R_{n+1}}\\
+              &{x\in\R_{n+1}}\\
             \equiv\\
-              {x\subseteq \bigcup_{k=0}^n \R_k}\\
+              &{x\subseteq \bigcup_{k=0}^n \R_k}\\
             \To\\
-              {x\subseteq \bigcup_{k=0}^{m}\R_k}\\
+              &{x\subseteq \bigcup_{k=0}^{m}\R_k}\\
             \equiv\\
-              {x\in\R_{m+1}}
+              &{x\in\R_{m+1}}
           \end{longderivation}
     \item Sea $n\in\N$, si $n=0$ no hay algo que demostrar. Para $n\in\J$:
           \begin{longderivation}<.9>
-              {x\in\bigcup_{k=0}^n \R_k}\\
+              &{x\in\bigcup_{k=0}^n \R_k}\\
             \equiv\\
-              { x\in \R_0 \lor x\in\bigcup_{k=1}^n \R_k }\\
+              &{ x\in \R_0 \lor x\in\bigcup_{k=1}^n \R_k }\\
             \why{(i)}\\
-              { x\in\R_0 \lor x\in\R_n }\\
+              &{ x\in\R_0 \lor x\in\R_n }\\
             \equiv\\
-              {x\in\R_0\cup\R_n}
+              &{x\in\R_0\cup\R_n}
           \end{longderivation}
     \item Sean $n,m \in \N$ tales que $n \leq m$.
           \begin{longderivation}<.9>
-              { \R_n \subseteq \bigcup_{k=0}^m\R_k }\\
+              &{ \R_n \subseteq \bigcup_{k=0}^m\R_k }\\
             \equiv\\
-              {\R_n \in \Pts{\bigcup_{k=0}^m\R_k}}\\
+              &{\R_n \in \Pts{\bigcup_{k=0}^m\R_k}}\\
             \equiv\\
-              { \R_n \in \R_{m+1} }
+              &{ \R_n \in \R_{m+1} }
           \end{longderivation}
     \item Sean $n\in\N$, $y\in\R_{n+1}$ y $x\in y$.
           \begin{longderivation}<.9>
-              { x \in y \land y \in \R_{n+1} }\\
+              &{ x \in y \land y \in \R_{n+1} }\\
             \why{(i)}\\
-              { x \in y \land y \subseteq \R_0\cup\R_n }\\
+              &{ x \in y \land y \subseteq \R_0\cup\R_n }\\
             \To\\
-              { x \in \R_0\cup\R_n }
+              &{ x \in \R_0\cup\R_n }
           \end{longderivation}
   \end{enumerate}
 \end{demo}

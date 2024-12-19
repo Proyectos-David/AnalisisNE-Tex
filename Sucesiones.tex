@@ -18,11 +18,11 @@ individuos.
 \begin{demo}
   Por un lado
   \begin{longderivation}<.9>
-      {\Forall{n}[n\in\st{\N}]{\Exists{a}[a\in M_0]{|\st{s_n}| \leq a}}}\\
+      &{\Forall{n}[n\in\st{\N}]{\Exists{a}[a\in M_0]{|\st{s_n}| \leq a}}}\\
     \why[\To]{Aplicando $\sd{}$}\\
-      {\Forall{n}[n\in\N]{\Exists{a}[a\in M_0]{|s_n| \leq \sd{a}}}}\\
+      &{\Forall{n}[n\in\N]{\Exists{a}[a\in M_0]{|s_n| \leq \sd{a}}}}\\
     \equiv\\
-      {\{s\} \text{ es acotada en } \R}
+      &{\{s\} \text{ es acotada en } \R}
   \end{longderivation}
   Por el otro, si $\{s_n\}$ es acotada en $\R$, el rango de $s$ tiene una
   mínima cota superior y una máxima cota inferior. Por el teorema
@@ -43,21 +43,21 @@ Su análogo en el análisis no estándar es:
 \begin{demo}
   Por un lado, sea $\e>0$
   \begin{longderivation}<1>
-      {\Exists{N}[N\in\N]{\Forall{n}[n\in\N \land n\geq N]{|s_n - s| < \e}}}\\
+      &{\Exists{N}[N\in\N]{\Forall{n}[n\in\N \land n\geq N]{|s_n - s| < \e}}}\\
     \equiv\\
-      {\Exists{N}[N\in\st{\N}]{\Forall{n}[n\in\st{\N} \land n\geq N]{|\st{s_n} - s| < \e}}}\\
+      &{\Exists{N}[N\in\st{\N}]{\Forall{n}[n\in\st{\N} \land n\geq N]{|\st{s_n} - s| < \e}}}\\
     \why{Definición de infinitesimal}\\
-      {\Exists{N}[N\in\st{\N}]{\Forall{n}[n\in\st{\N} \land n\geq N]{\st{s_n} =_1 s}}}\\
+      &{\Exists{N}[N\in\st{\N}]{\Forall{n}[n\in\st{\N} \land n\geq N]{\st{s_n} =_1 s}}}\\
     \To\\
-      {\Forall{\omega}[\omega\in\st{\N} - \N]{\st{s_\omega} =_1 s}}
+      &{\Forall{\omega}[\omega\in\st{\N} - \N]{\st{s_\omega} =_1 s}}
   \end{longderivation}
   Por el otro lado:
   \begin{longderivation}<1>
-      {\Forall{n}[n\in\st{\N} - \N]{\st{s_n} =_1 s}}\\
+      &{\Forall{n}[n\in\st{\N} - \N]{\st{s_n} =_1 s}}\\
     \To\\
-      {\Exists{N}[N\in\st{\N}]{\Forall{n}[n\in\st{\N} \land n \geq N]{\st{s_n} =_1 s}}}\\
+      &{\Exists{N}[N\in\st{\N}]{\Forall{n}[n\in\st{\N} \land n \geq N]{\st{s_n} =_1 s}}}\\
     \equiv\\
-      {
+      &{
         \Forall{\e}[\e>0]{
           \Exists{N}[N\in\st{N}]{
             \Forall{n}[n\in\st{\N} \land n \geq N]{|\st{s_n} - s| < \e}
@@ -65,7 +65,7 @@ Su análogo en el análisis no estándar es:
         }
       }\\
     \equiv\\
-      {
+      &{
         \Forall{\e}[\e>0]{
           \Exists{N}[N\in\N]{
             \Forall{n}[n\in\N \land n\leq N]{
@@ -80,38 +80,38 @@ Su análogo en el análisis no estándar es:
 El teorema se puede reescribir de forma equivalente, usando el
 homomorfismo de parte estándar:
 \begin{longderivation}<.8>
-    {\Forall{\omega}[\omega\in\st{\N}-\N]{\st{s_\omega}=_1 s}}\\
+    &{\Forall{\omega}[\omega\in\st{\N}-\N]{\st{s_\omega}=_1 s}}\\
   \equiv\\
-    {\Forall{\omega}[\omega\in\st{\N}-\N]{\sd{\st{s_\omega}}= s}}\\
+    &{\Forall{\omega}[\omega\in\st{\N}-\N]{\sd{\st{s_\omega}}= s}}\\
 \end{longderivation}
 
 Por ejemplo, la sucesión $\{\sqrt[n]{n}\}_{n\in\J}$. Para ver que esta sucesión
 converge a $1$, se considera $s_n = \sqrt[n]{n} - 1$.
 \begin{longderivation}<.8>
-    {s_n = \sqrt[n]{n} - 1}\\
+    &{s_n = \sqrt[n]{n} - 1}\\
   \equiv\\
-    {n = \left(s_n + 1\right)^n}\\
+    &{n = \left(s_n + 1\right)^n}\\
   \equiv\\
-    {n = \sum_{k=0}^n \binom{n}{k} s_n^k}\\
+    &{n = \sum_{k=0}^n \binom{n}{k} s_n^k}\\
   \To\\
-    {n \geq \binom{n}{2}s_n^2}\\
+    &{n \geq \binom{n}{2}s_n^2}\\
   \equiv\\
-    {n \geq \frac{n!}{(n-2)!\,2!}s_n^2}\\
+    &{n \geq \frac{n!}{(n-2)!\,2!}s_n^2}\\
   \equiv\\
-    {1 \geq \frac{n-1}{2}s_n^2}\\
+    &{1 \geq \frac{n-1}{2}s_n^2}\\
   \equiv\\
-    {\sqrt{\frac{2}{n-1}} \geq s_n}
+    &{\sqrt{\frac{2}{n-1}} \geq s_n}
 \end{longderivation}
 
 Se tiene entonces, que para todo $n\in\N$, $0\leq s_n \leq \sqrt{\frac{2}{n-1}}$.
 De igual forma, para todo $n\in\st{\N}$, $0\leq \st{s_n} \leq \sqrt{\frac{2}{n-1}}$.
 Lo que implica, que para todo $\omega\in\st{\N}-\N$
 \begin{longderivation}
-    {0\leq\st{s_\omega}\leq\sqrt{\frac{2}{n-1}}}\\
+    &{0\leq\st{s_\omega}\leq\sqrt{\frac{2}{n-1}}}\\
   \why[\To]{Los recíprocos de infinitos son infinitesimales, aplicando $\sd{}$}\\
-    {0\leq\sd{\st{s_\omega}}\leq 0}\\
+    &{0\leq\sd{\st{s_\omega}}\leq 0}\\
   \equiv\\
-    {\sd{\st{s_\omega}} = 0}
+    &{\sd{\st{s_\omega}} = 0}
 \end{longderivation}
 
 \begin{theorem}[Sucesiones de Cauchy]

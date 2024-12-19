@@ -89,11 +89,11 @@ entidades internas no-estándar. Lo que nos conduce a el siguiente teorema:
         Defínase para todo número natural el conjunto $A_n=\set{i}{\omega(i)\leq k}$.
         Nótese que, para todo $n$, $A_n\not\in\U$. En efecto, sea $k\in\N$
         \begin{longderivation}<.8>
-            {A_k}\\
+            &{A_k}\\
           =\\
-            {\set{i}{\omega(i)\leq k}}\\
+            &{\set{i}{\omega(i)\leq k}}\\
           =\\
-            {\bigcup_{i=0}^k I_i}
+            &{\bigcup_{i=0}^k I_i}
         \end{longderivation}
         Como $\U$ es un ultrafiltro, si $\bigcup_{i=0}^k I_i\in\U$, por las
         caracterizaciones de los ultrafiltros, al menos uno de los
@@ -101,19 +101,19 @@ entidades internas no-estándar. Lo que nos conduce a el siguiente teorema:
         que existe un $n\in\N$ tal que $I_n\in\U$. Esto es una
         contradicción por la definición de $\U$ y $\{I_n\}$. Así,
         \begin{longderivation}
-            {
+            &{
               \Forall{n}[n\in\N]{
                 \set{i}{\omega(i)\leq n}\not\in\U
               }
             }\\
           \why{$\U$ es un ultrafiltro}\\
-            {
+            &{
               \Forall{n}[n\in\N]{
                 \set{i}{\omega(i) > n}\in\U
               }
             }\\
           \equiv\\
-            {\Forall{n}[n\in\N]{\omega > n}}
+            &{\Forall{n}[n\in\N]{\omega > n}}
         \end{longderivation}
   \item Por la propiedad arquimediana de $\R$ con respecto a $\N$, solo
         hace falta demostrar que para todo
@@ -123,11 +123,11 @@ entidades internas no-estándar. Lo que nos conduce a el siguiente teorema:
         De la misma manera, se define para todo número natural el
         conjunto $ B_n=\set{i}{\e(i)\geq \frac{1}{k+1}}$. Sea $k\in\N$
         \begin{longderivation}<.8>
-            {B_k}\\
+            &{B_k}\\
           =\\
-            {\set{i}{\e(i) \geq \frac{1}{k+1}}}\\
+            &{\set{i}{\e(i) \geq \frac{1}{k+1}}}\\
           =\\
-            {\bigcup_{i=0}^k I_i}
+            &{\bigcup_{i=0}^k I_i}
         \end{longderivation}
         Nuevamente se repite el argumento y se concluye que:
         \[\Forall{n}[n\in\N]{\e < \frac{1}{n+1}}\]
@@ -181,21 +181,21 @@ infinitesimales.
   Lo primero es mostrar que $M_1$ es un ideal de $M_0$. En efecto, sean
   $h\in M_1$ y $a\in M_0$. Por definición de infinitesimal:
   \begin{longderivation}<1.1>
-      {\Forall{r}[r\in\R^+]{ |h|<r}}\\
+      &{\Forall{r}[r\in\R^+]{ |h|<r}}\\
     \equiv\\
-      {\Forall{r}[r\in\R^+]{ |a\,h| < |a|\,r}}\\
+      &{\Forall{r}[r\in\R^+]{ |a\,h| < |a|\,r}}\\
     \why[\To]{$|a|\,r \in \R^+$}\\
-      {\Forall{r'}[r'\in\R^+]{|a\,h| < r'}}\\
+      &{\Forall{r'}[r'\in\R^+]{|a\,h| < r'}}\\
     \equiv\\
-      {a\,h \in M_1}
+      &{a\,h \in M_1}
   \end{longderivation}
   Sea $a\in M_0 - M_1$, por definición, se tiene que:
   \begin{longderivation}<.9>
-      {\Exists{r_1,r_2}[r_1,r_2\in\R^+]{r_1 < |a| < r_2}}\\
+      &{\Exists{r_1,r_2}[r_1,r_2\in\R^+]{r_1 < |a| < r_2}}\\
     \equiv\\
-      {\Exists{r_1,r_2}[r_1,r_2\in\R^+]{\frac{1}{r_1} > \frac{1}{|a|} > \frac{1}{r_2}}}\\
+      &{\Exists{r_1,r_2}[r_1,r_2\in\R^+]{\frac{1}{r_1} > \frac{1}{|a|} > \frac{1}{r_2}}}\\
     \equiv\\
-      {\frac{1}{a}\in M_0 - M_1}
+      &{\frac{1}{a}\in M_0 - M_1}
   \end{longderivation}
   Sea $X$ un ideal de $M_0$ tal que $M_1\subset X$. entonces existe un
   $b\in M_0 - M_1$ tal que $b\in X$. Sin embargo, como se mostró,
@@ -219,9 +219,9 @@ $M_0/M_1$.
   haber dos números reales estándar distintos. Sean $r_1$, $r_2$ dos
   números reales usuales en la misma clase de equivalencia.
   \begin{longderivation}
-      {r_1 - r_2 \in M_1 \land |r_1 - r_2| \not= 0}\\
+      &{r_1 - r_2 \in M_1 \land |r_1 - r_2| \not= 0}\\
     \To\\
-      { |r_1 - r_2| < |r_1 - r_2| }
+      &{ |r_1 - r_2| < |r_1 - r_2| }
   \end{longderivation}
   Esto último es una contradicción, claramente. Por otro lado, para todo
   $a\in M_0$, existe un único número real $r$ tal que $a-r=_1 0$. En
